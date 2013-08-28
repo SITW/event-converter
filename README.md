@@ -6,7 +6,17 @@ cause the form of the json file should be like below
 
 ```
 [
-    {"id":1, "start":"2009-05-10T13:15:00.000+10:00", "end":"2009-05-10T14:15:00.000+10:00", "title":"<b><i>Lunch with Mike</b></i>"}
+  {
+    "id":"288D0513081901",
+    "start":"2014-01-04T05:00:00.000Z",
+    "end":"2014-01-04T14:00:00.000Z",
+    "title":"成大合唱團暨校友合唱團公演 (校內 )",
+    "other":{
+      "population":"40 ",
+      "name":"葉亞婷     ",
+      "site":"成功廳 "
+    }
+  }
 ]
 ```
 

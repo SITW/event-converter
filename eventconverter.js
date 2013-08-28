@@ -51,28 +51,27 @@ var readYearData = fs.readFile('./data/' + pyear + '/' + pyear + '.json', functi
 			var end_hour = end_date.substr(9, 2);
 			var end_min = end_date.substr(12, 2);
 
-			var title_str = '<div class="act_name">' + data["活動名稱"] + '</div><div class="act_type">' + data["活動性質"] + '</div><div class="act_join">' + data["參加人數"] + '</div><div class="act_name">' + data["申請人姓名"] + '</div><div class="act_site">' + data["活動場地"] + '</div>' 
+			var title_str = data["活動名稱"] + '(' + data["活動性質"] + ')'
+			var other_obj = {};
+			other_obj.population = data["參加人數"];
+			other_obj.name = data["申請人姓名"];
+			other_obj.site = data["活動場地"];
 
 			new_data.id = data["活動編號"];
-			new_st_obj = new Date(start_year, start_month, start_day, start_hour, start_min);	
+			new_st_obj = new Date(start_year, start_month - 1, start_day, start_hour, start_min);	
 
 			if(new_st_obj == "Invalid Date") {
 				return false;
-			}else {
-				new_st_iso = new_st_obj.toISOString();
 			}
 
-
-			new_end_obj = new Date(end_year, end_month, end_day, end_hour, end_min);
+			new_end_obj = new Date(end_year, end_month - 1, end_day, end_hour, end_min);
 			if(new_end_obj == "Invalid Date") {
 				return false;
-			}else {
-				new_end_iso = new_end_obj.toISOString();
 			}
-
-			new_data.start = new_st_iso;
-			new_data.end = new_end_iso;
+			new_data.start = new_st_obj;
+			new_data.end = new_end_obj;
 			new_data.title = title_str;
+			new_data.other = other_obj;
 
 			return new_data;
 			
