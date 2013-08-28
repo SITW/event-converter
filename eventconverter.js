@@ -68,8 +68,8 @@ var readYearData = fs.readFile('./data/' + pyear + '/' + pyear + '.json', functi
 			if(new_end_obj == "Invalid Date") {
 				return false;
 			}
-			new_data.start = new_st_obj;
-			new_data.end = new_end_obj;
+			new_data.start = "new Date(" + start_year + ", " + (parseInt(start_month, 10) - 1) + ", " + start_day + ", " + start_hour + ", " + start_min + ")";
+			new_data.end = "new Date(" + end_year + ", " + (parseInt(end_month, 10) - 1) + ", " + end_day + ", " + end_hour + ", " + end_min + ")";
 			new_data.title = title_str;
 			new_data.other = other_obj;
 
